@@ -1,0 +1,650 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. Todos los derechos reservados.
+
+Instale la versión más reciente de PowerShell para obtener nuevas características y mejoras. https://aka.ms/PSWindows
+
+PS C:\Users\jesus> wsl
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus$ mkdir PROYECTOFINALBIEN
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus$ cd PROYECTOFINALBIEN
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint:
+hint:   git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint:   git branch -m <name>
+Initialized empty Git repository in /mnt/c/Users/jesus/PROYECTOFINALBIEN/.git/
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git commit
+On branch master
+
+Initial commit
+
+nothing to commit (create/copy files and use "git add" to track)
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ touch archivovacio
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git add .
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git commit -m commitcomienzo
+[master (root-commit) 6d3a4b1] commitcomienzo
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 archivovacio
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git branch DEVELOP
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ switch DEVELOP
+Command 'switch' not found, did you mean:
+  command 'hswitch' from snap hswitch (22.12.0)
+  command 'kswitch' from deb krb5-user (1.19.2-2ubuntu0.4)
+  command 'kswitch' from deb heimdal-clients (7.7.0+dfsg-3ubuntu1)
+  command 'sqitch' from deb sqitch (1.2.1-1)
+See 'snap info <snapname>' for additional versions.
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git switch DEVEL
+OP
+
+Switched to branch 'DEVELOP'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git branch feat-courses
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git switch feat-courses
+Switched to branch 'feat-courses'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ nano courses.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ nano courses.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git add .
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git commit
+[feat-courses e2351ad] cracion courses.md
+ 1 file changed, 5 insertions(+)
+ create mode 100644 courses.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git branch
+  DEVELOP
+* feat-courses
+  master
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git switch DEVELOP
+Switched to branch 'DEVELOP'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git branch feat-landing
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git branch feat-landing
+fatal: A branch named 'feat-landing' already exists.
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git switch feat-
+landing
+Switched to branch 'feat-landing'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ nano landing.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git add .
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git commit
+[feat-landing c9d0561] creacion landing.md
+ 1 file changed, 1 insertion(+)
+ create mode 100644 landing.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git branch
+  DEVELOP
+  feat-courses
+* feat-landing
+  master
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git switch DEVELOP
+Switched to branch 'DEVELOP'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git merge feat-courses
+Updating 6d3a4b1..e2351ad
+Fast-forward
+ courses.md | 5 +++++
+ 1 file changed, 5 insertions(+)
+ create mode 100644 courses.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git merge feat-landing
+Merge made by the 'ort' strategy.
+ landing.md | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 landing.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git status
+On branch DEVELOP
+nothing to commit, working tree clean
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git log
+commit e7a0f62adcfd53af231e718d3f720a5753c4de75 (HEAD -> DEVELOP)
+Merge: e2351ad c9d0561
+Author: jesus <jesusrc999@gmail.com>
+Date:   Thu Sep 26 20:10:10 2024 +0200
+
+    Merge branch 'feat-landing' into DEVELOP
+
+commit c9d0561925108c7fe0df6b5c250d9151aa310341 (feat-landing)
+Author: jesus <jesusrc999@gmail.com>
+Date:   Thu Sep 26 20:08:17 2024 +0200
+
+    creacion landing.md
+
+commit e2351ad865e60cdfd364092a03c5c5986205bfca (feat-courses)
+Author: jesus <jesusrc999@gmail.com>
+Date:   Thu Sep 26 20:06:06 2024 +0200
+
+    cracion courses.md
+
+commit 6d3a4b1ce5ea4655208bb516835005e02355f3d3 (master)
+Author: jesus <jesusrc999@gmail.com>
+Date:   Thu Sep 26 20:03:13 2024 +0200
+
+    commitcomienzo
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git log --oneline --all --graph
+*   e7a0f62 (HEAD -> DEVELOP) Merge branch 'feat-landing' into DEVELOP
+|\
+| * c9d0561 (feat-landing) creacion landing.md
+* | e2351ad (feat-courses) cracion courses.md
+|/
+* 6d3a4b1 (master) commitcomienzo
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git switch master
+Switched to branch 'master'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git merge DEVELOP
+Updating 6d3a4b1..e7a0f62
+Fast-forward
+ courses.md | 5 +++++
+ landing.md | 1 +
+ 2 files changed, 6 insertions(+)
+ create mode 100644 courses.md
+ create mode 100644 landing.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git branch feat-logic
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git branch refactor-restructuring
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git switch feat-logic
+Switched to branch 'feat-logic'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ nano logic.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git add .
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git commit -m creacion logic.md
+[feat-logic 28dc112] creacion
+ 1 file changed, 3 insertions(+)
+ create mode 100644 logic.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git switch feat-
+courses
+Switched to branch 'feat-courses'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git switch refactor-restructuring
+Switched to branch 'refactor-restructuring'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ mkdir logic
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ mkdir courses
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ mkdir landing
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ dir
+archivovacio  courses  courses.md  landing  landing.md  logic
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git switch feat-courses
+Switched to branch 'feat-courses'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ dir
+archivovacio  courses  courses.md  landing  logic
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git mv courses.m
+d courses
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git status
+On branch feat-courses
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        renamed:    courses.md -> courses/courses.md
+
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git switch refactor-restructuring
+D       courses.md
+A       courses/courses.md
+Switched to branch 'refactor-restructuring'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ dir
+archivovacio  courses  landing  landing.md  logic
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ cd courses
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/courses$ dir
+courses.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/courses$ git stat
+us
+On branch refactor-restructuring
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        renamed:    ../courses.md -> courses.md
+
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/courses$ git add
+.
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/courses$ git comm
+it -m mover courses.md a refactor y a su carpeta
+error: pathspec 'a' did not match any file(s) known to git
+error: pathspec 'refactor' did not match any file(s) known to git
+error: pathspec 'y' did not match any file(s) known to git
+error: pathspec 'a' did not match any file(s) known to git
+error: pathspec 'su' did not match any file(s) known to git
+error: pathspec 'carpeta' did not match any file(s) known to git
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/courses$ git commit -m "mover courses.md a refactor y a su carpeta"
+[refactor-restructuring 13405f5] mover courses.md a refactor y a su carpeta
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ rename courses.md => courses/courses.md (100%)
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/courses$ git switch feat-landing
+Switched to branch 'feat-landing'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/courses$ dir
+dir: cannot open directory '.': No such file or directory
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/courses$ ls
+ls: cannot open directory '.': No such file or directory
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/courses$ cd ..
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ dir
+archivovacio  landing  landing.md  logic
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git mv "landing.
+md" "landing"
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git add .
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git commit -m "a
+ñadir landing.md a su carpeta y a refactor"
+[feat-landing 019cb71] añadir landing.md a su carpeta y a refactor
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ rename landing.md => landing/landing.md (100%)
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git switch feat-logic
+Switched to branch 'feat-logic'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git switch DEVELOP
+Switched to branch 'DEVELOP'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git merge feat-logic
+Updating e7a0f62..28dc112
+Fast-forward
+ logic.md | 3 +++
+ 1 file changed, 3 insertions(+)
+ create mode 100644 logic.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git status
+On branch DEVELOP
+nothing to commit, working tree clean
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git switch feat-logic
+Switched to branch 'feat-logic'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ dir
+archivovacio  courses.md  landing.md  logic  logic.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git mv "logic.md" "logic"
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git add .
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git commit -m "a
+ñadiendo logic.md a su carpeta y a refactor"
+[feat-logic bce734f] añadiendo logic.md a su carpeta y a refactor
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ rename logic.md => logic/logic.md (100%)
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ dir
+archivovacio  courses.md  landing.md  logic
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git switch DEVELOP
+Switched to branch 'DEVELOP'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ dir
+archivovacio  courses.md  landing.md  logic.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git merge refactor-restructuring
+Merge made by the 'ort' strategy.
+ courses.md => courses/courses.md | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ rename courses.md => courses/courses.md (100%)
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ dir
+archivovacio  courses  landing.md  logic.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git status
+On branch DEVELOP
+nothing to commit, working tree clean
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ dir
+archivovacio  courses  landing.md  logic.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ mkdir landing
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ mkdir logic
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git mv "logic.md" "logic"
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git status
+On branch DEVELOP
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        renamed:    logic.md -> logic/logic.md
+
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git add .
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git commit -m "a
+ñadiendo logic a carpeta no creada"
+[DEVELOP ce2ecc4] añadiendo logic a carpeta no creada
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ rename logic.md => logic/logic.md (100%)
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git mv "landing.
+md" "landing"
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git status
+On branch DEVELOP
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        renamed:    landing.md -> landing/landing.md
+
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git add .
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git commit -m "añadiendo landign a su carpeta no creada"
+[DEVELOP 0fb71b8] añadiendo landign a su carpeta no creada
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ rename landing.md => landing/landing.md (100%)
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git branch
+* DEVELOP
+  feat-courses
+  feat-landing
+  feat-logic
+  master
+  refactor-restructuring
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git switch master
+Switched to branch 'master'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git merge DEVELOP
+Updating e7a0f62..0fb71b8
+Fast-forward
+ courses.md => courses/courses.md | 0
+ landing.md => landing/landing.md | 0
+ logic/logic.md                   | 3 +++
+ 3 files changed, 3 insertions(+)
+ rename courses.md => courses/courses.md (100%)
+ rename landing.md => landing/landing.md (100%)
+ create mode 100644 logic/logic.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ dir
+archivovacio  courses  landing  logic
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git switch feat-logic
+Switched to branch 'feat-logic'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ nano logic.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ cat logic.md
+cat: logic.md: No such file or directory
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git branch
+  DEVELOP
+  feat-courses
+  feat-landing
+* feat-logic
+  master
+  refactor-restructuring
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git switch master
+Switched to branch 'master'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ car logic.md
+Command 'car' not found, but can be installed with:
+sudo apt install ucommon-utils
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ cat logic.md
+cat: logic.md: No such file or directory
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ dir
+archivovacio  courses  landing  logic
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ cd logic
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ dir
+logic.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ cat logic.md
+#logica
+
+es necesario darle al play para poder ver el video
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ cd ..
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git switch feat-logic
+Switched to branch 'feat-logic'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ dir
+archivovacio  courses.md  landing.md  logic
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ cd logic
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ nano logic.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git status
+On branch feat-logic
+nothing to commit, working tree clean
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ nano logic.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git add .
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git commit -m modificacion logic.md
+[feat-logic 7a81446] modificacion
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git switch master
+Switched to branch 'master'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git branch hotflix-login
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ dir
+logic.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git switch hotflix-login
+Switched to branch 'hotflix-login'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ nano logic.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git add .
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git commit
+[hotflix-login b2e46cb] edicion de logic.md en hotflix
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git switch master
+Switched to branch 'master'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git merge hotflix-login
+Updating 0fb71b8..b2e46cb
+Fast-forward
+ logic/logic.md | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git switch feat-logic
+Switched to branch 'feat-logic'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ nano logic.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git add .
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git commit
+ -m "edicion final logic.md"
+[feat-logic a2554df] edicion final logic.md
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git switch DEVELOP
+Switched to branch 'DEVELOP'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git merge
+feat-logic
+CONFLICT (rename/delete): logic.md renamed to logic/logic.md in HEAD, but deleted in feat-logic.
+Auto-merging logic/logic.md
+CONFLICT (add/add): Merge conflict in logic/logic.md
+Automatic merge failed; fix conflicts and then commit the result.
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git status
+On branch DEVELOP
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both added:      logic.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ dir
+logic.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git add .
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git merge
+feat-logic
+fatal: You have not concluded your merge (MERGE_HEAD exists).
+Please, commit your changes before you merge.
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git status
+On branch DEVELOP
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+        modified:   logic.md
+
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git commit
+ -m "arreglo final logic.md"
+[DEVELOP 815bdd2] arreglo final logic.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git merge feat-logic
+Already up to date.
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git branch
+* DEVELOP
+  feat-courses
+  feat-landing
+  feat-logic
+  hotflix-login
+  master
+  refactor-restructuring
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git switch master
+Switched to branch 'master'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git merge feat-logic
+Auto-merging logic/logic.md
+CONFLICT (add/add): Merge conflict in logic/logic.md
+Automatic merge failed; fix conflicts and then commit the result.
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both added:      logic.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git add .
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ cat logic.md
+#logica
+
+<<<<<<< HEAD
+es necesario darle al play para poder ver el video y ademas subirle
+el volumen
+=======
+es necesario darle al play para poder ver el video, ademas tendras que
+subir el volumen y listo
+>>>>>>> feat-logic
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ nano logic.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git status
+On branch master
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+        modified:   logic.md
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   logic.md
+
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ cat logic.md
+#logica
+
+es necesario darle al play para poder ver el video y ademas subirle
+el volumen y listo
+
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git commit -m "logic.md final en master"
+[master fd98f9c] logic.md final en master
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   logic.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git restor
+e logic.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ dir
+logic.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ cat logic.
+md
+#logica
+
+<<<<<<< HEAD
+es necesario darle al play para poder ver el video y ademas subirle
+el volumen
+=======
+es necesario darle al play para poder ver el video, ademas tendras que
+subir el volumen y listo
+>>>>>>> feat-logic
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git switch
+ master
+Already on 'master'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ dir
+logic.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ cd ..
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ dir
+archivovacio  courses  landing  logic
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ cd logic
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ cat logic.
+md
+#logica
+
+<<<<<<< HEAD
+es necesario darle al play para poder ver el video y ademas subirle
+el volumen
+=======
+es necesario darle al play para poder ver el video, ademas tendras que
+subir el volumen y listo
+>>>>>>> feat-logic
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git switch
+ feat logic
+fatal: only one reference expected
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git switch feat-logic
+Switched to branch 'feat-logic'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ cat logic.
+md
+#logica
+
+es necesario darle al play para poder ver el video, ademas tendras que
+subir el volumen y listo
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git switch master
+Switched to branch 'master'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git merge
+feat-logic
+Already up to date.
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git switch master
+Already on 'master'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ cat logic.
+md
+#logica
+
+<<<<<<< HEAD
+es necesario darle al play para poder ver el video y ademas subirle
+el volumen
+=======
+es necesario darle al play para poder ver el video, ademas tendras que
+subir el volumen y listo
+>>>>>>> feat-logic
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ cd ..
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ dir
+archivovacio  courses  landing  logic
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ cd logic
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ dir
+logic.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ cat logic.
+md
+#logica
+
+<<<<<<< HEAD
+es necesario darle al play para poder ver el video y ademas subirle
+el volumen
+=======
+es necesario darle al play para poder ver el video, ademas tendras que
+subir el volumen y listo
+>>>>>>> feat-logic
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git switch DEVELOP
+Switched to branch 'DEVELOP'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git branch fix-landing-page-styles
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git switch fix-landing-page-styles
+Switched to branch 'fix-landing-page-styles'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ cd ..
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ mkdir landing page
+mkdir: cannot create directory ‘landing’: File exists
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ mkdir landingpage
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git switch DEVELOP
+Switched to branch 'DEVELOP'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git checkout fast-payment-gateaway
+error: pathspec 'fast-payment-gateaway' did not match any file(s) known to git
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git branch fast-payment-gateaway
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git switch fast-payment-gateaway
+Switched to branch 'fast-payment-gateaway'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ mkdir payment
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ cd payment
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/payment$ touch payment
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/payment$ touch confirmation
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/payment$ touch receipt
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/payment$ git add .
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/payment$ git commit -m creacion ult pag
+error: pathspec 'ult' did not match any file(s) known to git
+error: pathspec 'pag' did not match any file(s) known to git
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/payment$ git commit -m "creacion ult pag"
+[fast-payment-gateaway 270005d] creacion ult pag
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 payment/confirmation
+ create mode 100644 payment/payment
+ create mode 100644 payment/receipt
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/payment$ git switch DEVELOP
+Switched to branch 'DEVELOP'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/payment$ git merge fast-payment-gateaway
+fatal: Unable to read current working directory: No such file or directory
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/payment$ cd ..
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git merge "fast-payment-gateaway"
+Updating 815bdd2..270005d
+Fast-forward
+ payment/confirmation | 0
+ payment/payment      | 0
+ payment/receipt      | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 payment/confirmation
+ create mode 100644 payment/payment
+ create mode 100644 payment/receipt
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git merge "fix-landing-page-styles"
+Already up to date.
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git status
+On branch DEVELOP
+nothing to commit, working tree clean
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git switch master
+Switched to branch 'master'
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git merge "DEVELOP"
+CONFLICT (rename/delete): logic.md renamed to logic/logic.md in Temporary merge branch 1, but deleted in Temporary merge branch 2.
+Auto-merging logic/logic.md
+CONFLICT (add/add): Merge conflict in logic/logic.md
+Auto-merging logic/logic.md
+CONFLICT (content): Merge conflict in logic/logic.md
+Automatic merge failed; fix conflicts and then commit the result.
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Changes to be committed:
+        new file:   payment/confirmation
+        new file:   payment/payment
+        new file:   payment/receipt
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   logic/logic.md
+
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ dir
+archivovacio  courses  landing  landingpage  logic  page  payment
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN$ cd logic
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ dir
+logic.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ nano logic.md
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git add .
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$ git commit -m "arreglo final proyecto logic"
+[master 1a9f8e7] arreglo final proyecto logic
+jesus@LAPTOP-AJ0TTGAU:/mnt/c/Users/jesus/PROYECTOFINALBIEN/logic$
